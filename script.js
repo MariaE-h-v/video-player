@@ -1,12 +1,12 @@
 const video = document.getElementById("video");
 const progress = document.getElementById("progress");
 const videoList = [
-  "videos/caminare.mp4",
-  "videos/en tus manos.mp4",
-  "videos/dios espera en el altar.mp4",
-  "videos/el cielo canta alegria.mp4",
-  "videos/El señor es mi fuerza.mp4",
-  "videos/renace la esperanza.mp4",
+  "videos/caminare_short.mp4",
+  "videos/en_tus_manos_short.mp4",
+  "videos/dios_espera_short.mp4",
+  "videos/el_cielo_canta_short.mp4",
+  "videos/el_senior_es_mi_fuerza_short.mp4",
+  "videos/renace_la_esperanza_short.mp4",
 ];
 let currentVideoIndex = 0;
 
