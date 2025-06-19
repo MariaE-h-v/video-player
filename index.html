@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reproductor de Vídeo - Maria Cristina Sanchez</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/image.png" type="image/png" />
+  </head>
+  <body>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+        <image
+        style="margin-left: 20px; width: 200px; height: 150px; color: #ccc; text-align: justify;"
+        src="assets/image.png"
+      ></image>
+      <h1>Reproductor de Vídeo - María Cristina Sánchez</h1>
+      <image
+        style="margin-right: 20px; width: 100px; height: 100px; color: #ccc; text-align: justify;"
+        src="assets/image2.png"
+      ></image>
+    </div>
+
+    <div class="container">
+      <div class="videoListPlayer">
+        <p
+          style="margin-top: 20px; font-size: 1.1em; color: #ccc; text-align: justify;"
+        >
+          🎶 ¡Hola! Estás en el espacio musical de nuestro coro 💛✨ Aquí
+          compartimos nuestras canciones favoritas, grabadas con mucho corazón
+          💫🎤 Dale play, canta con nosotros y deja que la música te inspire
+          🎧🙌 Para reproducir, selecciona las canciones desde la lista:
+        </p>
+        <ul id="videoList">
+          <li onclick="selectVideo(this,'videos/caminare.mp4')">🎵 Caminaré</li>
+          <li onclick="selectVideo(this,'videos/en tus manos.mp4')">
+            🎵 En tus manos
+          </li>
+          <li onclick="selectVideo(this,'videos/dios espera en el altar.mp4')">
+            🎵 Dios espera en el altar
+          </li>
+          <li onclick="selectVideo(this,'videos/el cielo canta alegria.mp4')">
+            🎵 El cielo canta alegría
+          </li>
+          <li onclick="selectVideo(this,'videos/El señor es mi fuerza.mp4')">
+            🎵 El señor es mi fuerza
+          </li>
+          <li onclick="selectVideo(this,'videos/renace la esperanza.mp4')">
+            🎵 Renace la esperanza
+          </li>
+          <li onclick="selectVideo(this,'videos/UnPuebloQueCamina.mp4')">
+            🎵 Un pueblo que camina
+          </li>
+        </ul>
+      </div>
+      <div class="player">
+        <video id="video" width="640" height="360">
+          <source src="" type="video/mp4" />
+          <track
+            src="captions/subtitles.vtt"
+            kind="subtitles"
+            srclang="es"
+            label="Español"
+            default
+          />
+          Tu navegador no soporta video HTML5.
+        </video>
+
+        <canvas id="snapshotCanvas" style="display:none;"></canvas>
+        <div class="controls progressBar">
+          <input
+            class="progressBar"
+            type="range"
+            id="progress"
+            value="0"
+            step="1"
+          />
+        </div>
+        <div class="controls">
+          <button onclick="resizeVideo(0.8)" title="Reducir tamaño del video">
+            🔽
+          </button>
+          <button class="buttons" onclick="prevVideo()" title="Video anterior">
+            ⏮️
+          </button>
+          <button title="Reproducir / Pausar el video" onclick="togglePlay()">
+            ⏯️
+          </button>
+          <button onclick="nextVideo()" title="Siguiente video">⏭️</button>
+          <button onclick="resizeVideo(1.2)" title="Aumentar tamaño del video">
+            🔼
+          </button>
+        </div>
+        <div class="controls">
+          <button onclick="takeSnapshot()" title="Capturar imagen del video">
+            📸
+          </button>
+          <button onclick="changeSpeed(-0.1)" title="Disminuir velocidad">
+            🐢 -
+          </button>
+          <button onclick="changeSpeed(0.1)" title="Aumentar velocidad">
+            🐇 +
+          </button>
+          <button onclick="toggleMute()" title="Activar o desactivar el sonido">
+            🔇
+          </button>
+          <button onclick="changeVolume(-0.1)" title="Bajar volumen">
+            🔉 -
+          </button>
+          <button onclick="changeVolume(0.1)" title="Subir volumen">
+            🔊 +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

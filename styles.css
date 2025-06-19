@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  .container{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .player {
+    margin: auto;
+    width: 70%;
+    max-width: 800px;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .videoListPlayer {
+    margin: auto;
+    width: 30%;
+    height: max-content;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .videoListPlayer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .videoListPlayer li {
+    background: #444;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .videoListPlayer li:hover {
+    background: #666;
+  }
+  
+  .videoListPlayer li.active {
+    background: #00b894;
+    font-weight: bold;
+    color: white;
+  }
+  
+  video {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  
+  button, select, input[type="range"] {
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    background: #555;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+  }
+  
+  button:hover, select:hover {
+    background: #777;
+  }
+  
+  input[type="range"] {
+    width: 75%;
+  }
+  
