@@ -1,4 +1,5 @@
 const video = document.getElementById("video");
+const track = document.getElementById("myTrack")
 const progress = document.getElementById("progress");
 const videoList = [
   "videos/caminare_short.mp4",
@@ -6,13 +7,23 @@ const videoList = [
   "videos/dios_espera_short.mp4",
   "videos/el_cielo_canta_short.mp4",
   "videos/el_senior_es_mi_fuerza_short.mp4",
+  "videos/puebloquecamina_short.mp4",
   "videos/renace_la_esperanza_short.mp4",
 ];
+const subsList = [
+  "captions/caminare_sub.vtt",
+  "captions/en_tus_manos.vtt",
+  "captions/dios_espera.vtt",
+  "captions/el_cielo.vtt",
+  "captions/el_senior.vtt",
+  "captions/puebloquecamina.vtt",
+  "captions/renace.vtt"
+]
 let currentVideoIndex = 0;
 
 video.addEventListener("timeupdate", () => {
   progress.max = video.duration;
-  progress.value = video.currentTime;s
+  progress.value = video.currentTime;
 });
 
 progress.addEventListener("input", () => {
@@ -55,24 +66,24 @@ function takeSnapshot() {
 }
 
 function prevVideo() {
-  currentVideoIndex =
-    (currentVideoIndex - 1 + videoList.length) % videoList.length;
+  currentVideoIndex = (currentVideoIndex - 1 + videoList.length) % videoList.length;
   changeVideo(videoList[currentVideoIndex]);
+  track.setAttribute("src", subsList[currentVideoIndex]);
 }
 
 function nextVideo() {
   currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
   changeVideo(videoList[currentVideoIndex]);
+  track.setAttribute("src", subsList[currentVideoIndex]);
 }
 
 function selectVideo(element, path) {
   currentVideoIndex = videoList.indexOf(path);
   changeVideo(path);
-
+  track.setAttribute("src", subsList[currentVideoIndex]);
+  
   // Quitar clase 'active' de todos los items
-  document
-    .querySelectorAll("#videoList li")
-    .forEach((li) => li.classList.remove("active"));
+  document.querySelectorAll("#videoList li").forEach((li) => li.classList.remove("active"));
 
   // Agregar clase 'active' al item seleccionado
   if (element) {
